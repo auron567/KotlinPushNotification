@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinPushNotification</string>
+    <string name="retrieve_token">Retrieve Token</string>
+</resources>
