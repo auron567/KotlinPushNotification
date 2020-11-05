@@ -1,6 +1,7 @@
 plugins {
     id(BuildPlugins.androidApplication)
     id(BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.googleServices)
 }
 
 android {
@@ -40,4 +41,6 @@ dependencies {
     implementation(Libs.appcompat)
     implementation(Libs.constraintlayout)
     implementation(Libs.material)
+    implementation(Libs.firebaseMessaging)
+    implementation(Libs.timber)
 }

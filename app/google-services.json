@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "613281639477",
+    "firebase_url": "https://kotlinpushnotification-2ef90.firebaseio.com",
+    "project_id": "kotlinpushnotification-2ef90",
+    "storage_bucket": "kotlinpushnotification-2ef90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613281639477:android:4a17e6b2099c0b0c3f957c",
+        "android_client_info": {
+          "package_name": "com.example.kotlinpushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613281639477-b2co4673liqpb59meu27qsais51b2upd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCAw4zfVPLVHXKuxzoCdCc1VAr4k9u7sw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613281639477-b2co4673liqpb59meu27qsais51b2upd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
