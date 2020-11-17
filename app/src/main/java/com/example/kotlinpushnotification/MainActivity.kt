@@ -1,8 +1,13 @@
 package com.example.kotlinpushnotification
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.kotlinpushnotification.databinding.ActivityMainBinding
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
@@ -11,10 +16,22 @@ import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var broadcast: LocalBroadcastManager
+
+    private val messageReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            val message = intent.extras?.getString("message")
+            binding.notificationText.text = message
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        broadcast = LocalBroadcastManager.getInstance(this)
 
         binding.retrieveTokenButton.setOnClickListener {
             // Get device token
@@ -35,6 +52,16 @@ class MainActivity : AppCompatActivity() {
                 Timber.w("Device doesn't have google play services")
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        broadcast.registerReceiver(messageReceiver, IntentFilter("MyData"))
+    }
+
+    override fun onStop() {
+        super.onStop()
+        broadcast.unregisterReceiver(messageReceiver)
     }
 
     private fun checkGooglePlayServices(): Boolean {
