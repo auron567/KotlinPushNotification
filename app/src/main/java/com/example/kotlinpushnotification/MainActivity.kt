@@ -52,6 +52,12 @@ class MainActivity : AppCompatActivity() {
                 Timber.w("Device doesn't have google play services")
             }
         }
+
+        // Handle notification payload
+        intent.extras?.let { bundle ->
+            val message = bundle.getString("text")
+            binding.notificationText.text = message
+        }
     }
 
     override fun onStart() {
